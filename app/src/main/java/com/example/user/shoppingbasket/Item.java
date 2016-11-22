@@ -14,6 +14,13 @@ public class Item {
         this.cost = cost;
     }
 
+//    getter
+    public String getStock(){
+        return this.stock;
+    }
 
+    public Integer getCost(){
+        return this.cost;
+    }
 
 }

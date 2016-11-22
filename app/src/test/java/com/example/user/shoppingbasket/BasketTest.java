@@ -27,4 +27,9 @@ public class BasketTest {
         assertEquals("J.Ava", basket.getCustomer());
     }
 
+    @Test
+    public void canAddItem(){
+        basket.addItem(item1);
+        assertEquals(1, basket.basketSize());
+    }
 }
