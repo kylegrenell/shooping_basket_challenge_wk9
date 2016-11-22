@@ -47,4 +47,8 @@ public class Basket {
         return this.shoppingBasket.size();
     }
 
+//    empty basket
+    public void emptyBasket(){
+        this.shoppingBasket.clear();
+    }
 }
