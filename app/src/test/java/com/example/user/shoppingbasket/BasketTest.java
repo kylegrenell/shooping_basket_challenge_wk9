@@ -32,4 +32,10 @@ public class BasketTest {
         basket.addItem(item1);
         assertEquals(1, basket.basketSize());
     }
+
+    @Test
+    public void canRemoveItem(){
+        basket.removeItem(item1);
+        assertEquals(0, basket.basketSize());
+    }
 }
