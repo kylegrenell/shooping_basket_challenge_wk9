@@ -15,8 +15,19 @@ public class Customer {
         this.funds = funds;
     }
 
+//    getter
+    public String getName(){
+        return this.name;
+    }
 
+//    setter
 
+    public String setName(){
+        return this.name;
+    }
 
+    public Integer getFunds(){
+        return this.funds;
+    }
 
 }
