@@ -7,9 +7,9 @@ package com.example.user.shoppingbasket;
 public class Item {
 
     private String stock;
-    private Integer cost;
+    private Double cost;
 
-    public Item (String stock, Integer cost){
+    public Item (String stock, Double cost){
         this.stock = stock;
         this.cost = cost;
     }
@@ -19,7 +19,7 @@ public class Item {
         return this.stock;
     }
 
-    public Integer getCost(){
+    public Double getCost(){
         return this.cost;
     }
 
