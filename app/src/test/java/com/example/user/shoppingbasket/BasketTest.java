@@ -22,10 +22,10 @@ public class BasketTest {
     public void before(){
         customer1 = new Customer("J.Ava", 20);
         basket = new Basket("J.Ava");
-        item1 = new Item("Baked Beans", 1.00);
-        item2 = new Item("Vegemite", 3.00);
-        item3 = new Item("Wine", 20.00);
-        item4 = new Item("Duck", 10.00);
+        item1 = new Item("Baked Beans", 1.00, true);
+        item2 = new Item("Vegemite", 3.00, true);
+        item3 = new Item("Wine", 25.00, false);
+        item4 = new Item("Duck", 10.00, false);
     }
 
     @Test
@@ -56,8 +56,24 @@ public class BasketTest {
     }
 
     @Test
-    public void canGetBuyOneGetOneFree(){
-
+    public void canAddTwoOfSameItem(){
+        basket.addItem(item2);
+        basket.addItem(item2);
+        assertEquals(2, basket.basketSize());
     }
+
+    @Test
+    public void isProductBogof() {
+        assertEquals(true, item1.isBogof());
+    }
+
+
+//    @Test
+//    public void canGetDiscount(){
+//        basket.addItem(item3);
+//        basket.discount();
+//        assertEquals(22.50, item.getCost(), 0.01);
+//    }
+
 
 }

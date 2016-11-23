@@ -7,48 +7,52 @@ import java.util.ArrayList;
  */
 
 public class Basket {
-//    expressions
+    //    expressions
     private String customer;
     private ArrayList<Item> shoppingBasket;
+    private Item item;
 
-//    initialise in the constructor
-    public Basket(String customer){
+
+    //    initialise in the constructor
+    public Basket(String customer) {
         this.customer = customer;
         this.shoppingBasket = new ArrayList<Item>();
     }
 
-//    customer getter
-    public String getCustomer(){
+    //    customer getter
+    public String getCustomer() {
         return customer;
     }
 
-//    customer setter
-    public String setCustomer(){
+    //    customer setter
+    public String setCustomer() {
         return customer;
     }
 
-    public ArrayList<Item> getShoppingBasket(){
+    public ArrayList<Item> getShoppingBasket() {
         return this.shoppingBasket;
     }
 
-//    add Item from arrayList to shoppingBasket
-    public void addItem(Item item){
+    //    add Item from arrayList to shoppingBasket
+    public void addItem(Item item) {
         this.shoppingBasket.add(item);
     }
 
 
-//    remove item
-    public void removeItem(Item item){
+    //    remove item
+    public void removeItem(Item item) {
         this.shoppingBasket.remove(item);
     }
 
-//    size of basket
-    public int basketSize(){
+    //    size of basket
+    public int basketSize() {
         return this.shoppingBasket.size();
     }
 
-//    empty basket
-    public void emptyBasket(){
+    //    empty basket
+    public void emptyBasket() {
         this.shoppingBasket.clear();
     }
-}
+
+
+    }
