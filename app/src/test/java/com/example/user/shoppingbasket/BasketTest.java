@@ -12,6 +12,7 @@ import static junit.framework.Assert.assertEquals;
 public class BasketTest {
 
     Basket basket;
+    Customer customer;
     Customer customer1;
     Item item1;
     Item item2;
@@ -19,8 +20,8 @@ public class BasketTest {
     Item item4;
 
     @Before
-    public void before(){
-        customer1 = new Customer("J.Ava", 20);
+    public void before() {
+        customer1 = new Customer("J.Ava", 20, true);
         basket = new Basket("J.Ava");
         item1 = new Item("Baked Beans", 1.00, true);
         item2 = new Item("Vegemite", 3.00, true);
@@ -29,12 +30,12 @@ public class BasketTest {
     }
 
     @Test
-    public void customerHasName(){
+    public void customerHasName() {
         assertEquals("J.Ava", basket.getCustomer());
     }
 
     @Test
-    public void canAddItem(){
+    public void canAddItem() {
         basket.addItem(item1);
         assertEquals(1, basket.basketSize());
         basket.addItem(item2);
@@ -42,13 +43,13 @@ public class BasketTest {
     }
 
     @Test
-    public void canRemoveItem(){
+    public void canRemoveItem() {
         basket.removeItem(item1);
         assertEquals(0, basket.basketSize());
     }
 
     @Test
-    public void canEmptyBasket(){
+    public void canEmptyBasket() {
         basket.addItem(item1);
         basket.addItem(item3);
         basket.emptyBasket();
@@ -56,7 +57,7 @@ public class BasketTest {
     }
 
     @Test
-    public void canAddTwoOfSameItem(){
+    public void canAddTwoOfSameItem() {
         basket.addItem(item2);
         basket.addItem(item2);
         assertEquals(2, basket.basketSize());
@@ -68,12 +69,46 @@ public class BasketTest {
     }
 
 
+    @Test
+    public void canGetDiscount() {
+        basket.addItem(item3);
+        assertEquals(22.50, basket.discount(item3));
+    }
+
+    @Test
+    public void testLoyaltyCard(){
+        assertEquals(false, customer1.getLoyaltyCard());
+    }
+
+    @Test
+    public void setLoyaltyCard(){
+        customer1.setLoyaltyCard(true);
+        assertEquals(true, customer1.getLoyaltyCard());
+    }
+
+
+    @Test
+    public void canGetBasketTotal(){
+        basket.addItem(item1);
+        basket.addItem(item2);
+        assertEquals(4.00, basket.getTotalCost());
+    }
+
+
 //    @Test
-//    public void canGetDiscount(){
-//        basket.addItem(item3);
-//        basket.discount();
-//        assertEquals(22.50, item.getCost(), 0.01);
+//    public void canGetBogof(){
+//        basket.addItem(item1);
+//        basket.addItem(item1);
+//        assertEquals(1.00, basket.getBogof());
 //    }
 
+//    @Test
+//    public void canOnlyApplyTwoPercentDiscountIfMember(){
+//        basket.addItem(item3);
+//        basket.addItem(item3);
+//        basket.discount(item3);
+//        basket.getLoyaltyDiscount();
+//        assertEquals(0.98, basket.getTotalCost());
+//    }
 
 }
